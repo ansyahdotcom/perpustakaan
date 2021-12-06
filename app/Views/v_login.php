@@ -12,7 +12,7 @@
             <form action="login/login" method="post">
                 <?= csrf_field() ?>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off">
+                    <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off" autofocus>
                 </div>
                 <div class="input-group mb-3">
                     <input type="password" class="form-control" placeholder="Password" name="password" required>

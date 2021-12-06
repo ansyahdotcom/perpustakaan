@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="card-body">
-            Start creating your amazing application! dashboard
+            Start creating your amazing application! dashboard <?= $username; ?>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
