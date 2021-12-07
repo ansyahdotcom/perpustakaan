@@ -67,12 +67,12 @@
                      </div>
                      <form action="<?php echo base_url('Buku/simpan'); ?>" method="POST">
                             <div class="modal-body">
-                                   <div class="form-group row">
+                                   <!-- <div class="form-group row">
                                           <label for="idBuku" class="col-sm-3 col-form-label">ID Buku</label>
                                           <div class="col-sm-9">
                                                  <input type="text" class="form-control" id="idBuku" name="idBuku" placeholder="ID Buku">
                                           </div>
-                                   </div>
+                                   </div> -->
                                    <div class="form-group row">
                                           <label for="judulBuku" class="col-sm-3 col-form-label">Judul Buku</label>
                                           <div class="col-sm-9">
