@@ -28,6 +28,25 @@ class Login extends BaseController
         //     'username' => $this->request->getVar('username'),
         //     'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
         // ]);
+
+        // LOGIN
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'username harus diisi'
+                ]
+                ],
+                'password' => [
+                    'rules' => 'required|min_length[5]',
+                    'errors' => [
+                        'required' => 'password harus diisi',
+                        'min_length[5]' => 'password terlalu pendek'
+                    ]
+                ]
+        ])) {
+            return redirect()->to('/login')->withInput();
+        }
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 
@@ -39,14 +58,14 @@ class Login extends BaseController
                     'username' => $login['username']
                 ];
                 session()->set($data);
-                // session()->setFlashdata('message', 'login');
+                session()->setFlashdata('message', 'login');
                 return redirect()->to('/dashboard');
             } else {
-                // session()->setFlashdata('message', 'wrong_passwd');
+                session()->setFlashdata('message', 'wrong_passwd');
                 return redirect()->to('/login');
             }
         } else {
-            // session()->setFlashdata('message', 'belum_terdaftar');
+            session()->setFlashdata('message', 'belum_terdaftar');
             return redirect()->to('/login');
         }
     }
@@ -54,7 +73,7 @@ class Login extends BaseController
     public function logout()
     {
         session()->destroy(TRUE);
-        // session()->setFlashdata('message', 'logout');
+        session()->setFlashdata('message', 'logout');
         return redirect()->to('/login');
     }
 }

@@ -22,6 +22,9 @@
     <script src="/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/assets/dist/js/adminlte.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="/assets/dist/js/sweetalert2.all.min.js"></script>
+    <script src="/assets/dist/js/swal.js"></script>
 </body>
 
 </html>

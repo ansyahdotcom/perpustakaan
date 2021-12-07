@@ -1,8 +1,7 @@
 <?= $this->extend('layout/template_login') ?>
 <?= $this->section('content'); ?>
-
 <div class="login-box">
-    <!-- /.login-logo -->
+    <div class="flash-data" data-flashdata="<?= session()->get('message') ?>"></div>
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
             <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
@@ -21,15 +20,10 @@
                     <div class="col-4">
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                     </div>
-                    <!-- /.col -->
                 </div>
             </form>
         </div>
-        <!-- /.card-body -->
     </div>
-    <!-- /.card -->
-    <a href="dashboard" type="button" class="btn btn-primary">ke dashboard</a>
 </div>
-<!-- /.login-box -->
 
 <?= $this->endSection(); ?>

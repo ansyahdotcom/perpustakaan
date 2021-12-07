@@ -29,9 +29,21 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="pinjam" class="nav-link">
+                        <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>
+                        <p>
+                            Peminjaman Buku
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-fw fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>

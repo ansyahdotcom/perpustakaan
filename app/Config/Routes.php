@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Login::index');
 $routes->get('/', 'Login::index');
 $routes->get('/logout', 'Login::logout');
+$routes->get('/addpinjam', 'Pinjam::addpinjam');
 
 /*
  * --------------------------------------------------------------------

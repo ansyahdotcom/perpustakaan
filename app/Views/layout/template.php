@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -31,6 +36,24 @@
 
         <div class="content-wrapper">
             <?= $this->renderSection('content'); ?>
+        </div>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Apakah Anda ingin logout?</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" type="button" data-dismiss="modal">Batal</button>
+                        <a class="btn btn-danger" href="http://localhost:8080/logout">Logout</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer class="main-footer">
@@ -56,6 +79,31 @@
     <script src="/assets/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/assets/dist/js/demo.js"></script>
+    <!-- Sweet Alert -->
+    <script src="/assets/dist/js/sweetalert2.all.min.js"></script>
+    <script src="/assets/dist/js/swal.js"></script>
+    <!-- date-range-picker -->
+    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+    <script>
+        $(function() {
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', {
+                'placeholder': 'dd/mm/yyyy'
+            })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', {
+                'placeholder': 'mm/dd/yyyy'
+            })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+        })
+    </script>
 </body>
 
 </html>
