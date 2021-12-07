@@ -12,4 +12,14 @@ class BukuModel extends Model
 
               return $query->getResult();
        }
+
+       // Buat method baru di model. Harus = method yg diketik di controller
+       // Menerima $table dan $data
+       function simpanData($table, $data)
+       {
+              // Script query untuk simpan data
+              // Tabel namanya diambil dari apapun yg dilempar oleh controller
+              $this->db->table($table)->insert($data);
+              return true;
+       }
 }
