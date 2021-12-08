@@ -32,6 +32,7 @@
                                                                <th>Pengarang</th>
                                                                <th>Penerbit</th>
                                                                <th>Tahun Terbit</th>
+                                                               <th>Aksi</th>
                                                         </tr>
                                                  </thead>
                                                  <tbody>
@@ -43,6 +44,8 @@
                                                                       <td><?= $row->pengarang ?></td>
                                                                       <td><?= $row->penerbit ?></td>
                                                                       <td><?= $row->thn_terbit ?></td>
+                                                                      <td><button type="button" class="btn btn-sm btn-info">
+                                                                                    <i class="fa fa-edit" data-toggle="modal" data-target="#modal-edit<?= $row->id_bk; ?>"></i></button></td>
                                                                </tr>
                                                         <?php endforeach ?>
                                                  </tbody>
@@ -76,25 +79,25 @@
                                    <div class="form-group row">
                                           <label for="judulBuku" class="col-sm-3 col-form-label">Judul Buku</label>
                                           <div class="col-sm-9">
-                                                 <input type="text" class="form-control" id="judulBuku" name="judulBuku" placeholder="Judul Buku">
+                                                 <input type="text" class="form-control" id="judulBuku" name="judulBuku" placeholder="Judul Buku" autofocus required>
                                           </div>
                                    </div>
                                    <div class="form-group row">
                                           <label for="pengarang" class="col-sm-3 col-form-label">Pengarang</label>
                                           <div class="col-sm-9">
-                                                 <input type="text" class="form-control" id="pengarang" name="pengarang" placeholder="Pengarang">
+                                                 <input type="text" class="form-control" id="pengarang" name="pengarang" placeholder="Pengarang" required>
                                           </div>
                                    </div>
                                    <div class="form-group row">
                                           <label for="penerbit" class="col-sm-3 col-form-label">Penerbit</label>
                                           <div class="col-sm-9">
-                                                 <input type="text" class="form-control" id="penerbit" name="penerbit" placeholder="Penerbit">
+                                                 <input type="text" class="form-control" id="penerbit" name="penerbit" placeholder="Penerbit" required>
                                           </div>
                                    </div>
                                    <div class="form-group row">
                                           <label for="tahunTerbit" class="col-sm-3 col-form-label">Tahun Terbit</label>
                                           <div class="col-sm-9">
-                                                 <input type="number" class="form-control" id="tahunTerbit" name="tahunTerbit" placeholder="Tahun Terbit">
+                                                 <input type="text" class="form-control" id="tahunTerbit" name="tahunTerbit" placeholder="Tahun Terbit" required>
                                           </div>
                                    </div>
                             </div>
@@ -108,6 +111,66 @@
        </div>
        <!-- /.modal-dialog -->
 </div>
+<!-- /.modal -->
+
+
+<!-- Modal Edit -->
+<?php $no = 1;
+foreach ($dataBuku as $row) : ?>
+       <div class="modal fade" id="modal-edit<?= $row->id_bk; ?>">
+              <div class="modal-dialog">
+                     <div class="modal-content">
+                            <div class="modal-header">
+                                   <h4 class="modal-title">Form Edit Data Buku</h4>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                   </button>
+                            </div>
+                            <form action="<?php echo base_url('Buku/edit'); ?>" method="POST" class="form-horizontal">
+                                   <div class="modal-body">
+                                          <!-- <div class="form-group row">
+                                          <label for="idBuku" class="col-sm-3 col-form-label">ID Buku</label>
+                                          <div class="col-sm-9">
+                                                 <input type="text" class="form-control" id="idBuku" name="idBuku" placeholder="ID Buku">
+                                          </div>
+                                   </div> -->
+                                          <input type="hidden" value=<?= $row->id_bk; ?>" name="id_bk">
+                                          <div class="form-group row">
+                                                 <label for="judulBuku" class="col-sm-3 col-form-label">Judul Buku</label>
+                                                 <div class="col-sm-9">
+                                                        <input value="<?= $row->judul_bk; ?>" type="text" class="form-control" name="judulBuku" placeholder="Judul Buku">
+                                                 </div>
+                                          </div>
+                                          <div class="form-group row">
+                                                 <label for="pengarang" class="col-sm-3 col-form-label">Pengarang</label>
+                                                 <div class="col-sm-9">
+                                                        <input value="<?= $row->pengarang; ?>" type="text" class="form-control" name="pengarang" placeholder="Pengarang">
+                                                 </div>
+                                          </div>
+                                          <div class="form-group row">
+                                                 <label for="penerbit" class="col-sm-3 col-form-label">Penerbit</label>
+                                                 <div class="col-sm-9">
+                                                        <input value="<?= $row->penerbit; ?>" type="text" class="form-control" name="penerbit" placeholder="Penerbit">
+                                                 </div>
+                                          </div>
+                                          <div class="form-group row">
+                                                 <label for="tahunTerbit" class="col-sm-3 col-form-label">Tahun Terbit</label>
+                                                 <div class="col-sm-9">
+                                                        <input value="<?= $row->thn_terbit; ?>" type="text" class="form-control" name="tahunTerbit" placeholder="Tahun Terbit">
+                                                 </div>
+                                          </div>
+                                   </div>
+                                   <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                          <button type="submit" class="btn btn-success"><i class="far fa-check-circle pr-2" aria-hidden="true"></i>Simpan</button>
+                                   </div>
+                            </form>
+                     </div>
+                     <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+       </div>
+<?php endforeach ?>
 <!-- /.modal -->
 
 

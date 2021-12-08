@@ -8,7 +8,7 @@ class BukuModel extends Model
 {
        public function getdata()
        {
-              $query = $this->db->query("SELECT * FROM buku ORDER BY judul_bk");
+              $query = $this->db->query("SELECT * FROM buku ORDER BY judul_bk ASC");
 
               return $query->getResult();
        }
@@ -20,6 +20,15 @@ class BukuModel extends Model
               // Script query untuk simpan data
               // Tabel namanya diambil dari apapun yg dilempar oleh controller
               $this->db->table($table)->insert($data);
+              return true;
+       }
+       function editData($table, $data, $where)
+       {
+              // Script query untuk simpan data
+              // Tabel namanya diambil dari apapun yg dilempar oleh controller
+
+              // karena update itu by id, maka tambahin $where
+              $this->db->table($table)->update($data, $where);
               return true;
        }
 }
