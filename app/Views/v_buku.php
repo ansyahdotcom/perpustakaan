@@ -35,6 +35,8 @@
                                                                <th>Aksi</th>
                                                         </tr>
                                                  </thead>
+
+
                                                  <tbody>
                                                         <?php $no = 1;
                                                         foreach ($dataBuku as $row) : ?>
@@ -46,7 +48,9 @@
                                                                       <td><?= $row->thn_terbit ?></td>
                                                                       <td><button type="button" class="btn btn-sm btn-info">
                                                                                     <i class="fa fa-edit" data-toggle="modal" data-target="#modal-edit<?= $row->id_bk; ?>"></i></button>
-                                                                             <a class="btn btn-sm btn-danger mt-2" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?')" href="<?php echo base_url('Buku/hapus'); ?>/<?= $row->id_bk; ?>"><i class="fa fa-trash"></i></a>
+                                                                             <button type="button" class="btn btn-sm btn-danger">
+                                                                                    <i class="fa fa-trash" data-toggle="modal" data-target="#modal-delete<?= $row->id_bk; ?>"></i></button>
+
                                                                       </td>
                                                                </tr>
                                                         <?php endforeach ?>
@@ -71,6 +75,7 @@
                             </button>
                      </div>
                      <form action="<?php echo base_url('Buku/simpan'); ?>" method="POST">
+                            <?php echo csrf_field(); ?>
                             <div class="modal-body">
                                    <!-- <div class="form-group row">
                                           <label for="idBuku" class="col-sm-3 col-form-label">ID Buku</label>
@@ -104,7 +109,7 @@
                                    </div>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                   <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                   <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
                                    <button type="submit" class="btn btn-success"><i class="far fa-check-circle pr-2" aria-hidden="true"></i>Simpan</button>
                             </div>
                      </form>
@@ -129,6 +134,7 @@ foreach ($dataBuku as $row) : ?>
                                    </button>
                             </div>
                             <form action="<?php echo base_url('Buku/edit'); ?>" method="POST" class="form-horizontal">
+                                   <?php echo csrf_field(); ?>
                                    <div class="modal-body">
                                           <!-- <div class="form-group row">
                                           <label for="idBuku" class="col-sm-3 col-form-label">ID Buku</label>
@@ -163,7 +169,7 @@ foreach ($dataBuku as $row) : ?>
                                           </div>
                                    </div>
                                    <div class="modal-footer justify-content-between">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
                                           <button type="submit" class="btn btn-success"><i class="far fa-check-circle pr-2" aria-hidden="true"></i>Simpan</button>
                                    </div>
                             </form>
@@ -174,6 +180,48 @@ foreach ($dataBuku as $row) : ?>
        </div>
 <?php endforeach ?>
 <!-- /.modal -->
+
+<!-- Modal Delete -->
+<?php $no = 1;
+foreach ($dataBuku as $row) : ?>
+       <div class="modal fade" id="modal-delete<?= $row->id_bk; ?>">
+              <div class="modal-dialog">
+                     <div class="modal-content">
+                            <div class="modal-header">
+                                   <h4 class="modal-title">Peringatan</h4>
+                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                   </button>
+                            </div>
+                            <form action="<?php echo base_url('Buku/hapus'); ?>" method="POST" class="form-horizontal">
+                                   <div class="modal-body">
+                                          <input type="hidden" value=<?= $row->id_bk; ?>" name="id_bk">
+                                          <p>Apakah Anda yakin untuk menghapus data ini ?</p>
+
+                                   </div>
+                                   <div class="modal-footer justify-content-between">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
+                                          <button type="submit" class="btn btn-success"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</button>
+                                   </div>
+                            </form>
+                     </div>
+                     <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+       </div>
+<?php endforeach ?>
+<!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
 
 
 
