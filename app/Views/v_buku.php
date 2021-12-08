@@ -45,7 +45,9 @@
                                                                       <td><?= $row->penerbit ?></td>
                                                                       <td><?= $row->thn_terbit ?></td>
                                                                       <td><button type="button" class="btn btn-sm btn-info">
-                                                                                    <i class="fa fa-edit" data-toggle="modal" data-target="#modal-edit<?= $row->id_bk; ?>"></i></button></td>
+                                                                                    <i class="fa fa-edit" data-toggle="modal" data-target="#modal-edit<?= $row->id_bk; ?>"></i></button>
+                                                                             <a class="btn btn-sm btn-danger mt-2" onclick="return confirm('Apakah Anda yakin untuk menghapus data ini ?')" href="<?php echo base_url('Buku/hapus'); ?>/<?= $row->id_bk; ?>"><i class="fa fa-trash"></i></a>
+                                                                      </td>
                                                                </tr>
                                                         <?php endforeach ?>
                                                  </tbody>

@@ -119,4 +119,35 @@ class Buku extends BaseController
                             window.location(' . base_url('/Buku') . ');</script>';
               }
        }
+
+
+       function hapus($idBuku)
+       {
+              // id_barang nailainya diambil dari apapun yg diinputkan oleh viewnya yaitu $idbuku
+              $where = ['id_bk' => $idBuku];
+
+
+              // Tambahkan error handling try ... catch untuk mencegah error
+              try {
+
+                     // Nanti buat method baru di modelnya yg bernama editData
+                     // dan ditambahkan variabel baru yg bernama $where, karena edit itu by id
+                     $hapus = $this->mbuku->hapusData($this->table, $where);
+
+                     // ketika nyimpan dan berhasil, muncul alert
+                     // tambahkan redirect dengan javascript windows.location
+                     if ($hapus) {
+                            echo "<script>alert('Data Berhasil Dihapus!'); 
+                            window.location='" . base_url('Buku') . "';</script>";
+                     } else {
+                            echo '<script>alert("Data Gagal Dihapus!); 
+                            window.location(' . base_url('/Buku') . ');</script>';
+                     }
+              } catch (\Throwable $th) {
+                     // Ketika id buku (sifatnya unique / primary key) ada yg duplikat,
+                     // muncul peringatan data duplikat. Cara mengatasinya lewat try catch ini
+                     echo '<script>alert("ID Barang Sudah Ada!); 
+                            window.location(' . base_url('/Buku') . ');</script>';
+              }
+       }
 }

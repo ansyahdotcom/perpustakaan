@@ -38,4 +38,13 @@ class BukuModel extends Model
               $this->db->table($table)->update($data, $where);
               return true;
        }
+       function hapusData($table, $where)
+       {
+              // Script query untuk simpan data
+              // Tabel namanya diambil dari apapun yg dilempar oleh controller
+
+              // karena update itu by id, maka tambahin $where
+              $this->db->table($table)->delete($where);
+              return true;
+       }
 }
