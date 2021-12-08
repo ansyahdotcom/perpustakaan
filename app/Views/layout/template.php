@@ -15,8 +15,10 @@
     <!-- Select2 -->
     <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet" href="/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="/assets/plugins/daterangepicker/daterangepicker.css">
+
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="/assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -84,27 +86,39 @@
     <!-- Sweet Alert -->
     <script src="/assets/dist/js/sweetalert2.all.min.js"></script>
     <script src="/assets/dist/js/swal.js"></script>
-    <!-- date-range-picker -->
-    <script src="/assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+
+    <!-- Select2 -->
+    <script src="/assets/plugins/select2/js/select2.full.min.js"></script>
+    <!-- InputMask -->
+    <script src="/assets/plugins/moment/moment.min.js"></script>
+    <script src="/assets/plugins/inputmask/jquery.inputmask.min.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="/assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script>
         $(function() {
-            //Datemask dd/mm/yyyy
-            $('#datemask').inputmask('dd/mm/yyyy', {
-                'placeholder': 'dd/mm/yyyy'
+            //Initialize Select2 Bootstrap Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
             })
-            //Datemask2 mm/dd/yyyy
-            $('#datemask2').inputmask('mm/dd/yyyy', {
-                'placeholder': 'mm/dd/yyyy'
-            })
-            //Money Euro
-            $('[data-mask]').inputmask()
 
             //Date picker
             $('#reservationdate').datetimepicker({
-                format: 'L'
+                format: 'DD-MM-YYYY'
             });
-        })
+
+            $('.datepick').datetimepicker({
+                format: {
+                    toValue: function(date, format, language) {
+                        var d = new Date(date);
+                        d.setDate(d.getDate() + 7);
+                        return new Date(d);
+                    }
+                }
+
+            });
+        });
     </script>
 </body>
 

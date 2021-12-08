@@ -27,6 +27,7 @@
                                     <th>Buku</th>
                                     <th>Tgl Pinjam</th>
                                     <th>Tgl Kembali</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,6 +41,11 @@
                                     <td>Win 95+</td>
                                     <td> 4</td>
                                     <td>X</td>
+                                    <td>
+                                        <a type="button" class="btn btn-success btn-sm" href="#">Kembalikan buku</a>
+                                        <a type="button" class="btn btn-primary btn-sm" href="#">Ubah</a>
+                                        <a type="button" class="btn btn-secondary btn-sm" href="#">Hapus</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

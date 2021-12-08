@@ -31,7 +31,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="pinjam" class="nav-link">
-                        <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>
+                        <i class="nav-icon fas fa-clipboard"></i>
                         <p>
                             Peminjaman Buku
                         </p>

@@ -6,6 +6,13 @@ use CodeIgniter\Model;
 
 class BukuModel extends Model
 {
+       protected $table = 'buku';
+       protected $primaryKey = 'id_bk';
+       protected $useTimestamps = true;
+       protected $createdField = 'created_bk';
+       protected $updatedField = 'updated_bk';
+       protected $allowedFields = ['judul_bk', 'pengarang'];
+
        public function getdata()
        {
               $query = $this->db->query("SELECT * FROM buku ORDER BY judul_bk ASC");
